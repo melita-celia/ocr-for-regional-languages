@@ -22,7 +22,9 @@
                     {% csrf_token %}
                     <label> Image Upload:</label>
                     <input type="file" class="form-control" id="image" name="image" />
+                    <input type="textbox" class="form-control" id="lang" name="lang"/>
                     <button class="button-primary" type="submit" >Submit</button>
+                    
                 </form>
                 <label><h2>Detected Text:</h2></label>
                 <span class="textarea" role="textbox" contenteditable>{{det_text}}</span>
