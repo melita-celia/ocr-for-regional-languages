@@ -20,6 +20,8 @@ import easyocr
 from gtts import gTTS
 from IPython.display import Audio
 import IPython.display as ipd
+from .forms import NameForm
+from django.http import HttpResponseRedirect
 
 def draw_boxes(image, bounds, color='yellow', width=2):
     draw = ImageDraw.Draw(image)
@@ -28,6 +30,21 @@ def draw_boxes(image, bounds, color='yellow', width=2):
         draw.line([*p0, *p1, *p2, *p3, *p0], fill=color, width=width)
     return image
 
+def get_name(request):
+    # if this is a POST request we need to process the form data
+    if request.method == 'POST':
+        # create a form instance and populate it with data from the request:
+        form = NameForm(request.POST)
+        # check whether it's valid:
+        if form.is_valid():
+            # process the data in form.cleaned_data as required
+            # redirect to a new URL:
+            return HttpResponseRedirect('/thanks/')
+    # if a GET (or any other method) we'll create a blank form
+    else:
+        form = NameForm()
+
+    return render(request, 'name.html', {'form': form})
 # Create your views here.
 def index(request):
     text_en = ""
