@@ -6,3 +6,6 @@ class ImageUpload(forms.ModelForm):
     class Meta:
         model = Ocr
         fields = ['image']
+        
+class Lang(forms.Form):
+    lang = forms.CharField(label='Language', max_length=5)
