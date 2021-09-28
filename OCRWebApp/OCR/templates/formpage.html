@@ -22,12 +22,33 @@
                     {% csrf_token %}
                     <label> Image Upload:</label>
                     <input type="file" class="form-control" id="image" name="image" />
-                    <button class="button-primary" type="submit" >Submit</button>
+                    <!--<input type="textbox" class="form-control" id="lang" name="lang"/>-->
+                    <label for="Lang">Choose Language:</label>
+                    <select name="lang" id="lang">
+                        <option value="blank" disabled="true"></option>
+                        <option value="as">Assamese</option>
+                        <option value="bh">Bihari</option>
+                        <option value="bho">Bhojpuri</option>
+                        <option value="bn">Bengali</option>
+                        <option value="gom">Goan Konkani</option>
+                        <option value="hi">Hindi</option>
+                        <option value="kn">Kannada</option>
+                        <option value="mr">Marathi</option>
+                        <option value="ta">Tamil</option>
+                        <option value="te">Telugu</option>
+                        <option value="ur">Urdu</option>
+                </select>
+                <script type="text/javascript">
+                    document.getElementById('lang').value = "<?php echo $_GET['lang'];?>";
+                  </script>
+                <br><br>
+                <!--<input type="submit" value="Submit">-->
+                <button class="button-primary" type="submit" >Submit</button>
                 </form>
                 <label><h2>Detected Text:</h2></label>
-                <span class="textarea" role="textbox" contenteditable>{{det_text}}</span>
+                <span class="textarea" role="textbox" >{{det_text}}</span>
                 <label><h2>Translated Text:</h2></label>
-                <span class="textarea" role="textbox" contenteditable>{{translated_text}}</span><br>
+                <span class="textarea" role="textbox">{{translated_text}}</span><br>
                 <!--<span contenteditable>{{audiotts}}><embed src="trans.mp3" height="100" width="500"></span>-->
             </div>
         </div>
