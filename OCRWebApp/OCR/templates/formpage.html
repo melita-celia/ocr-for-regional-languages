@@ -5,11 +5,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>OCR AN IMAGE AND SUMMARIZE</title>
-        <link href="{% static 'css/form.css' %}" rel="stylesheet" type="text/css">
-        <!--<script src="{% static 'js/form.js' %}"></script>-->
+        <title>OCR FOR REGIONAL LANGUAGES</title>
+        <link href="{% static 'forms.css' %}" rel="stylesheet" type="text/css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" >
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>-->
     </head>
     <body >
         <div class="container">
@@ -25,7 +23,7 @@
                     <!--<input type="textbox" class="form-control" id="lang" name="lang"/>-->
                     <label for="Lang">Choose Language:</label>
                     <select name="lang" id="lang">
-                        <option value="blank" disabled="true"></option>
+                        <option value="blank" disabled selected hidden>Choose here</option>
                         <option value="as">Assamese</option>
                         <option value="bh">Bihari</option>
                         <option value="bho">Bhojpuri</option>
@@ -37,7 +35,7 @@
                         <option value="ta">Tamil</option>
                         <option value="te">Telugu</option>
                         <option value="ur">Urdu</option>
-                </select>
+                    </select>
                 <script type="text/javascript">
                     document.getElementById('lang').value = "<?php echo $_GET['lang'];?>";
                   </script>
@@ -45,11 +43,15 @@
                 <!--<input type="submit" value="Submit">-->
                 <button class="button-primary" type="submit" >Submit</button>
                 </form>
+                <audio
+                    src="{{obj}}"
+                    controls
+                ></audio>
+                <!--<span>{{audiotts}}><embed src="trans.mp3" height="100" width="500"></span>-->
                 <label><h2>Detected Text:</h2></label>
                 <span class="textarea" role="textbox" >{{det_text}}</span>
                 <label><h2>Translated Text:</h2></label>
                 <span class="textarea" role="textbox">{{translated_text}}</span><br>
-                <!--<span contenteditable>{{audiotts}}><embed src="trans.mp3" height="100" width="500"></span>-->
             </div>
         </div>
     </body>
