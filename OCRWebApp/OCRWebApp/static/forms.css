@@ -1,20 +1,45 @@
 @media  only screen and (min-device-width: 768px) 
 {
+    section.sec-1 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    }
+    section.sec-2 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    }
     .form-container {
       padding: 5%;
-      background: #ffffff;
-      border: 9px solid #f2f2f2;            
+      background: #050D0F;
+      border: 9px solid #F7B538;            
       max-width: 520px;
       margin: auto;
+      color: #F7B538;
     }
 }
+
+header {
+    width: 100%;
+    background-color:#050D0F ;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color:#F7B538;
+    border-radius: 10px;
+    border-bottom: 10px;
+}
+
 body
 {
-    background: #00CED1;
+    background: #050D0F;
 }
 h1, p
 {
   text-align: center;
+  color: #F7B538;
 }
 input, textarea , button
 {
