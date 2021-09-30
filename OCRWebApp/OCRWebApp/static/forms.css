@@ -59,7 +59,14 @@ input, textarea
   width: 120px;
   border: #050D0F;
   border-radius: 5px;
+  font-size: 13px;
 }
+
+#ocr:hover{
+  cursor: pointer;
+  background-color: #d88c00;
+}
+
 textarea
 {
   height: 200px;
