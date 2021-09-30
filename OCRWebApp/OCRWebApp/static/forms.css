@@ -1,22 +1,20 @@
 @media  only screen and (min-device-width: 768px) 
 {
-    section.sec-1 {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    }
-    section.sec-2 {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    }
     .form-container {
       padding: 5%;
       background: #050D0F;
       border: 9px solid #F7B538;            
-      max-width: 520px;
+      max-width: 80%;
       margin: auto;
       color: #F7B538;
+    }
+    .rightsidebar {
+      padding: 5%;
+      background: #050D0F;          
+      max-width: 80%;
+      margin: auto;
+      color: #F7B538;
+      align-items: flex-end;
     }
 }
 
@@ -30,21 +28,38 @@ header {
     color:#F7B538;
     border-radius: 10px;
     border-bottom: 10px;
+    text-align: center;
 }
-
+section.sec-1 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    }
+section.sec-2 {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
 body
 {
-    background: #050D0F;
+    background: #F7B538;
 }
 h1, p
 {
   text-align: center;
-  color: #F7B538;
+  color: #050D0F;
 }
-input, textarea , button
+input, textarea 
 {
   width: 100%;
 }    
+#ocr{
+  background-color: #F7B538;
+  color: #050D0F;
+  width: 120px;
+  border: #050D0F;
+  border-radius: 5px;
+}
 textarea
 {
   height: 200px;
