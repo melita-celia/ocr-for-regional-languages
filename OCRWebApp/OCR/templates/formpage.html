@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 {% load static %}
+
 <html lang="en">
 
 <head>
@@ -15,13 +16,22 @@
     <h1>
         OCR for Regional Languages
     </h1>
-    <header>
+    <!--<header>
         Convert your image to text and get it translated too!
-    </header>
+    </header>-->
         <div class="form-container">
                 <p style="color: red;">{{message}}</p>
                 <form method="POST" enctype=multipart/form-data>
                     {% csrf_token %}
+                    <aside>
+                        <h3>STEPS</h3>
+                        <ol>
+                            <li>Upload the image using the button.</li>
+                            <li>Click on submitted button</li>
+                            <li>Your detected and translated text are now available below!</li>
+                            <li>Click on the play button to hear the translation</li>
+                        </ol>
+                    </aside>
                     <label> Image Upload:</label>
                     <input type="file" class="form-control" id="image" name="image" />
                     <!--<input type="textbox" class="form-control" id="lang" name="lang"/>-->
@@ -47,17 +57,9 @@
                     <!--<input type="submit" value="Submit">-->
                     <button id="ocr" class="button-primary" type="submit">Submit</button>
                 </form>
-                <audio src="{{obj}}" controls></audio>
+            </div>
+            <div class="rightsidebar">
                 <!--<span>{{audiotts}}><embed src="trans.mp3" height="100" width="500"></span>-->
-                <aside>
-                <h3>STEPS</h3>
-                <ol>
-                    <li>Upload the image using the button.</li>
-                    <li>Click on submitted button</li>
-                    <li>Your detected and translated text are now available below!</li>
-                    <li>Click on the play button to hear the translation</li>
-                </ol>
-                </aside>
                 <label>
                     <h2>Detected Text:</h2>
                 </label>
@@ -65,8 +67,11 @@
                 <label>
                     <h2>Translated Text:</h2>
                 </label>
-                <span class="textarea" role="textbox">{{translated_text}}</span><br>
-        </div>
+                <span class="textarea" role="textbox">{{translated_text}}</span><br><br>
+                <audio controls preload="none">
+                    <source src="{% static '/audio/trans.wav' %}" type="audio/mpeg">
+                </audio>
+            </div>
 </body>
 
 </html>
