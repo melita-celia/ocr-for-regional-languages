@@ -8,4 +8,4 @@ class ImageUpload(forms.ModelForm):
         fields = ['image']
         
 class Lang(forms.Form):
-    lang = forms.CharField(label='Language', max_length=5)
+    lang = forms.CharField(label='Language')
