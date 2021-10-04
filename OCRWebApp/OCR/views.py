@@ -2,7 +2,7 @@ from django.shortcuts import render
 
 from .forms import ImageUpload
 import os
-
+import shutil
 # import Image from PIL to read image
 from PIL import Image
 from PIL import ImageDraw
@@ -13,6 +13,7 @@ from django.http import HttpResponseRedirect
 from googletrans import Translator
 import easyocr
 from gtts import gTTS
+
 from IPython.display import Audio
 import IPython.display as ipd
 import cv2
@@ -33,7 +34,6 @@ def index(request):
     text_en = ""
     det_text = ""
     message = ""
-    #audiotts = ""
     lang = get_lang(request)
     if request.method == 'POST':
         form = ImageUpload(request.POST, request.FILES)
@@ -55,20 +55,11 @@ def index(request):
                 det_text = text_comb
                 draw_boxes(img, bounds)
                 img.show()
-                
-                #text = text_comb
                 text_trans = translator.translate(text_comb)
                 text_en = text_trans.text
-                #audiotts = ipd.Audio('trans.mp3')
-                #audio=gTTS(text_en.text)
-                #audio.save('trans.mp3')
-                #text = pytesseract.image_to_string(im)
-                #text_en = pytesseract.image_to_string(im, lang=xyz)
-                #text_en = translator.detect(text)
-                #from langdetect import detect_langs 
-                #text_en = detect_langs(sample_text)
-                #text_en = text_en.encode("ascii", "ignore")
-                #text_en = text_en.decode()
+                audio=gTTS(text_en)
+                audio.save('trans.wav')
+                shutil.move("trans.wav", "C:/Users/sushr/Dropbox/My PC (LAPTOP-AC0PDSKE)/Desktop/Sushree/Sem 5 Study Material/Mini Project/OCRWebApp/static/audio/trans.wav")
                 os.remove(pathz)
             except:
                 message = "check your filename and ensure it doesn't have any space or check if it has any text"
