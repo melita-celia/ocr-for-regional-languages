@@ -1,0 +1,45 @@
+*{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+@media  only screen and (min-device-width: 768px)
+{
+    .form-container {
+      align-items: center;
+      justify-content: center;
+      padding: 5%;
+      background: #050D0F;
+      border: 9px solid #D8572A;
+      color: #F7B538;
+      max-width: 70%;
+      margin: auto;
+    }
+}
+body
+{
+    background:#D8572A;
+}
+h1,h3,h4
+{
+  text-align: center;
+}
+p{
+  background-color: #780116;
+  text-align: center;
+  font-size: large;
+}
+input, textarea 
+{
+  width: 100%;
+}
+#ocr{
+  background-color: #F7B538;
+  color: #050D0F;
+  width: 120px;
+  border: #050D0F;
+  border-radius: 5px;
+  font-size: 13px;
+}
+textarea
+{
+  height: 200px;
+}
